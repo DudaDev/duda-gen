@@ -71,7 +71,7 @@ function handleArgFlags(env) {
 				out.createInitPlopfile(force);
 				process.exit(0);
 			} catch (err) {
-				console.error(chalk.red('[PLOP] ') + err.message);
+				console.error(chalk.red('[DUDA] ') + err.message);
 				process.exit(1);
 			}
 		}
@@ -92,7 +92,7 @@ function handleArgFlags(env) {
 
 	// abort if there's no plopfile found
 	if (env.configPath == null) {
-		console.error(chalk.red('[PLOP] ') + 'No plopfile found');
+		console.error(chalk.red('[DUDA] ') + 'No plopfile found');
 		out.displayHelpScreen();
 		process.exit(1);
 	}

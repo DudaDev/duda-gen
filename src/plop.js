@@ -55,7 +55,7 @@ function run(env) {
 	// hmmmm, couldn't identify a generator in the user's input
 	if (!generators.length) {
 		// no generators?! there's clearly something wrong here
-		console.error(chalk.red('[PLOP] ') + 'No generator found in plopfile');
+		console.error(chalk.red('[DUDA] ') + 'No generator found in plopfile');
 		process.exit(1);
 	} else if (!generatorName && generators.length === 1) {
 		// only one generator in this plopfile... let's assume they
@@ -67,7 +67,7 @@ function run(env) {
 		out.chooseOptionFromList(generators, plop.getWelcomeMessage())
 			.then(runGeneratorByName)
 			.catch((err) => {
-				console.error(chalk.red('[PLOP] ') + 'Something went wrong with selecting a generator', err);
+				console.error(chalk.red('[DUDA] ') + 'Something went wrong with selecting a generator', err);
 			});
 	} else if (generatorNames.includes(generatorName)) {
 		// we have found the generator, run it!
@@ -75,7 +75,7 @@ function run(env) {
 	} else {
 		// we just can't make sense of your input... sorry :-(
 		const fuzyGenName = (generatorName + ' ' + args.join(' ')).trim();
-		console.error(chalk.red('[PLOP] ') + 'Could not find a generator for "' + fuzyGenName + '"');
+		console.error(chalk.red('[DUDA] ') + 'Could not find a generator for "' + fuzyGenName + '"');
 		process.exit(1);
 	}
 

@@ -4,7 +4,7 @@ const chalk = require('chalk');
 const nodePlop = require('node-plop');
 const fs = require('fs');
 
-const defaultChoosingMessage = chalk.blue('[PLOP]') + ' Please choose a generator.';
+const defaultChoosingMessage = chalk.blue('[DUDA]') + ' Please choose a generator.';
 
 module.exports = (function () {
 

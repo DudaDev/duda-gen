@@ -1,31 +1,31 @@
 'use strict';
 const path = require('path');
 
-module.exports = function (plop) {
+module.exports = function (gen) {
 	// starting prompt can be customized to display what you want
-	// plop.setWelcomeMessage('[CUSTOM]'.yellow + ' What can I do for you?');
+	// gen.setWelcomeMessage('[CUSTOM]'.yellow + ' What can I do for you?');
 
 	// helpers are passed through handlebars syntax and made
 	// available for use in the generator templates
 
 	// adds 4 dashes around some text (yes es6/es2015 is supported)
-	plop.addHelper('dashAround', (text) => '---- ' + text + ' ----');
+	gen.addHelper('dashAround', (text) => '---- ' + text + ' ----');
 
 	// formats an array of options like you would write
 	// it, if you were speaking (one, two, and three)
-	plop.addHelper('wordJoin', function (words) {
+	gen.addHelper('wordJoin', function (words) {
 		return words.join(', ').replace(/(:?.*),/, '$1, and');
 	});
 
-	plop.addHelper('absPath', function (p) {
-		return path.resolve(plop.getPlopfilePath(), p);
+	gen.addHelper('absPath', function (p) {
+		return path.resolve(gen.getPlopfilePath(), p);
 	});
 
 	// greet the user using a partial
-	plop.addPartial('salutation', '{{ greeting }}, my name is {{ properCase name }} and I am {{ age }}.');
+	gen.addPartial('salutation', '{{ greeting }}, my name is {{ properCase name }} and I am {{ age }}.');
 
 	// load some additional helpers from a module installed using npm
-	plop.load('plop-pack-fancy-comments', {
+	gen.load('plop-pack-fancy-comments', {
 		prefix: '',
 		upperCaseHeaders: true,
 		commentStart: '',
@@ -37,7 +37,7 @@ module.exports = function (plop) {
 	});
 
 	// setGenerator creates a generator that can be run with "plop generatorName"
-	plop.setGenerator('test', {
+	gen.setGenerator('test', {
 		description: 'this is a test',
 		prompts: [
 			{
@@ -86,18 +86,18 @@ module.exports = function (plop) {
 				// move the current working directory to the plop file path
 				// this allows this action to work even when the generator is
 				// executed from inside a subdirectory
-				process.chdir(plop.getPlopfilePath());
+				process.chdir(gen.getPlopfilePath());
 
 				// custom function can be synchronous or async (by returning a promise)
 				var fs = require('fs');
 				var existsMsg = 'psst {{name}}, change-me.txt already exists';
 				var copiedMsg = 'hey {{name}}, I copied change-me.txt for you';
 				var changeFileName = 'change-me.txt';
-				var changeFilePath = plop.getDestBasePath() + '/folder/' + changeFileName;
+				var changeFilePath = gen.getDestBasePath() + '/folder/' + changeFileName;
 
-				// you can use plop.renderString to render templates
-				existsMsg = plop.renderString(existsMsg, answers);
-				copiedMsg = plop.renderString(copiedMsg, answers);
+				// you can use gen.renderString to render templates
+				existsMsg = gen.renderString(existsMsg, answers);
+				copiedMsg = gen.renderString(copiedMsg, answers);
 
 				if (fs.existsSync(changeFilePath)) {
 					// returned value shows up in the console
@@ -128,9 +128,9 @@ module.exports = function (plop) {
 
 
 	// adding a custom inquirer prompt type
-	plop.addPrompt('directory', require('inquirer-directory'));
+	gen.addPrompt('directory', require('inquirer-directory'));
 
-	plop.setGenerator('custom-prompt', {
+	gen.setGenerator('custom-prompt', {
 		description: 'custom inquirer prompt example',
 		prompts: [
 			{
@@ -145,7 +145,7 @@ module.exports = function (plop) {
 				type: 'directory',
 				name: 'path',
 				message: 'where would you like to put this component?',
-				basePath: plop.getPlopfilePath()
+				basePath: gen.getPlopfilePath()
 			}
 		],
 		actions: [
@@ -162,7 +162,7 @@ module.exports = function (plop) {
 
 
 	// test with dynamic actions, regarding responses to prompts
-	plop.setGenerator('dynamic actions', {
+	gen.setGenerator('dynamic actions', {
 		description: 'another test using an actions function',
 		prompts: [
 			{

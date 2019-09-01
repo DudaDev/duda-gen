@@ -1,11 +1,11 @@
 {
-  "name": "plop",
-  "version": "2.4.0",
+  "name": "@dudadev/duda-gen",
+  "version": "1.0.0",
   "description": "Micro-generator framework that makes it easy for an entire team to create files with a level of uniformity",
   "main": "./src/plop.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/amwmedia/plop.git"
+    "url": "https://github.com/DudaDev/duda-gen.git"
   },
   "keywords": [
     "generator",
@@ -15,12 +15,12 @@
     "build",
     "generate",
     "gen",
-    "plop"
+    "duda"
   ],
   "author": "Andrew Worcester <andrew@amwmedia.com> (http://amwmedia.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/amwmedia/plop/issues"
+    "url": "https://github.com/DudaDev/duda-gen/issues"
   },
   "devDependencies": {
     "inquirer-directory": "^2.2.0",
@@ -41,6 +41,6 @@
   },
   "preferGlobal": "true",
   "bin": {
-    "plop": "./src/plop.js"
+    "dudagen": "./src/plop.js"
   }
 }

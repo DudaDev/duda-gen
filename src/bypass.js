@@ -16,7 +16,7 @@ function combineBypassData(generator, bypassArr, plopArgV) {
 	const promptNames = generator.prompts.map((prompt) => prompt.name);
 	// Check if bypassArr is too long for promptNames
 	if (bypassArr.length > promptNames.length) {
-		console.error(chalk.red('[PLOP] ') + 'Too many bypass arguments passed for "' + generator.name + '"');
+		console.error(chalk.red('[DUDA] ') + 'Too many bypass arguments passed for "' + generator.name + '"');
 		out.getHelpMessage(generator);
 		process.exit(1);
 	}
@@ -27,7 +27,7 @@ function combineBypassData(generator, bypassArr, plopArgV) {
 		let errors = false;
 		Object.keys(plopArgV).forEach((arg) => {
 			if (!(promptNames.find((name) => name === arg)) && arg !== '_') {
-				console.error(chalk.red('[PLOP] ') + '"' + arg + '"' + ' is an invalid argument for "' + generator.name + '"');
+				console.error(chalk.red('[DUDA] ') + '"' + arg + '"' + ' is an invalid argument for "' + generator.name + '"');
 				errors = true;
 			}
 		});
