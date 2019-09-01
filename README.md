@@ -1,5 +1,8 @@
-Plop
-======
+# Duda-Gen
+
+> Code generator for Duda, forked from the project "Plop"
+
+## Plop
 
 Micro-generator framework that makes it easy for an entire team to create files with a level of uniformity.
 ![plop demo](http://i.imgur.com/penUFkr.gif)
