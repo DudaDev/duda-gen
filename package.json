@@ -22,6 +22,7 @@
   "bugs": {
     "url": "https://github.com/DudaDev/duda-gen/issues"
   },
+  "private": false,
   "devDependencies": {
     "inquirer-directory": "^2.2.0",
     "plop-pack-fancy-comments": "^0.2.0"
