@@ -94,7 +94,7 @@ module.exports = (function () {
 		'append': chalk.green('_+')
 	};
 	const typeMap = (name, noMap) => {
-		const dimType = chalk.dim(name);
+		const dimType = chalk.grey(name);
 		return (noMap ? dimType : typeDisplay[name] || dimType);
 	};
 
