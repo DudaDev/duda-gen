@@ -90,7 +90,7 @@ function doThePlop(generator, bypassArr) {
 			const noMap = (argv['show-type-names'] || argv.t);
 			const progress = ora();
 			const onComment = (msg) => {
-				progress.info(msg); progress.start();
+				progress.info(generator.renderString(msg, answers)); progress.start();
 			};
 			const onSuccess = (change) => {
 				let line = '';
